@@ -1,32 +1,41 @@
-from typing import List
+from typing import list
 import math
 
-Vector = List[float]
+vector = list[float]
 
-def add(v :Vector,w: Vector) -> Vector:
-    return [v_i + w_i for v_i, w_i in zip(v,w)]
 
-def subtract(v: Vector, w: Vector) -> Vector:
-    return [v_i - w_i for v_i, w_i in zip(v,w)]
+def add(v: vector, w: vector) -> vector:
+    return [v_i + w_i for v_i, w_i in zip(v, w)]
 
-def vector_sum(vectors:List[Vector]) -> Vector:
+
+def subtract(v: vector, w: vector) -> vector:
+    return [v_i - w_i for v_i, w_i in zip(v, w)]
+
+
+def vector_sum(vectors: list[vector]) -> vector:
     num_elements = len(vectors[0])
     return [sum(vector[i] for vector in vectors)
             for i in range(num_elements)]
 
-def scalar_multiply(c:float,v:Vector) -> Vector:
-    return [c*v_i for v_i in v]
 
-def vector_mean(vectors:List(Vector)) -> Vector:
-    n = len(vectors)
-    return scalar_multiply(1/n,vector_sum(vectors))
+def scalar_multiply(c: float, v: vector) -> vector:
+    return [c * v_i for v_i in v]
 
-def dot(v:Vector,w:Vector) -> float:
-    return sum(v_i * w_i for v_i,w_i in zip(v,w))
 
-def sum_of_squares(v: Vector) -> float:
-    return dot(v*v)
+def vector_mean(vectors: list(vector)) -> vector:
+    n = len(vectors)    return scalar_multiply(1 / n, vector_sum(vectors))
 
-def magnitude(v:)
 
+def dot(v: vector, w: vector) -> float:
+    return sum(v_i * w_i for v_i, w_i in zip(v, w))
+
+
+def sum_of_squares(v: vector) -> float:
+    return dot(v * v)
+
+
+def magnitude(v: vector) -> float:
+    return math.sqrt(sum_of_squares(v))
+
+def squared_distance(v:vector,w:vector) -> float:
 
