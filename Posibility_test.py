@@ -1,17 +1,14 @@
 def main():
     import enum, random
 
-
     # An Enum is a typed set of enumerated values. We can use them
     # to make our code more descriptive and readable.
     class Kid(enum.Enum):
         BOY = 0
         GIRL = 1
 
-
     def random_kid() -> Kid:
         return random.choice([Kid.BOY, Kid.GIRL])
-
 
     both_girls = 0
     older_girl = 0
@@ -31,5 +28,6 @@ def main():
 
     print("P(both | older):", both_girls / older_girl)
     print("P(both | either): ", both_girls / either_girl)
+
 
 main()
